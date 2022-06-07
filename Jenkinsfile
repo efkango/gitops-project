@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-      docker {image 'goturk'}
-    }
+    agent any
 
     stages {
       
@@ -18,7 +16,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'node --version'
+                echo 'testler calisti'
             }
         }
         stage('Build') {
