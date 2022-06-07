@@ -1,12 +1,16 @@
 pipeline {
-    agent any
+    agent {
+      docker {image 'goturk'}
+    }
 
     stages {
+      
         stage('Checkout SCM') {
             steps {
                 checkout scm
             }
         }
+       
         stage('Static Code Analysiz') {
             steps {
                 echo 'static analysis...'
@@ -14,7 +18,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                echo 'testler calisti'
+                sh 'node --version'
             }
         }
         stage('Build') {
